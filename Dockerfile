@@ -1,5 +1,6 @@
 FROM alpine:3.3
-
+MAINTAINER disarticulate <eric@lorefolk.com> 
+#(forked https://github.com/docker-library/python/blob/3232863ad5aba683fb084cb00097723c8c9efb47/3.5/alpine/Dockerfile)
 # http://bugs.python.org/issue19846
 # > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG C.UTF-8
