@@ -38,7 +38,13 @@ RUN set -ex \
 		readline-dev \
 		xz-dev \
 		zlib-dev 
-RUN apk add sqlite-dev
+RUN wget http://sqlite.org/2016/sqlite-autoconf-3120200.tar.gz \
+	&& tar -xvzf sqlite-autoconf-3120200.tar.gz \
+	&& cd sqlite-autoconf-3120200 \
+	&& ./configure --prefix=/usr --disable-static \
+         	CFLAGS="-g -O2 -DSQLITE_ENABLE_JSON1" \
+		&& make \
+		&& make install
 RUN cd /usr/src/python \
 	&& ./configure --enable-shared --enable-unicode=ucs4 --enable-loadable-sqlite-extensions \
 	&& make -j$(getconf _NPROCESSORS_ONLN) \
