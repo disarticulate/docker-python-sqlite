@@ -1,0 +1,1 @@
+/debug/column-metadata
