@@ -62,7 +62,7 @@ RUN cd /tmp/sqlite-autoconf-3120200 \
          	CFLAGS="-g" \
 	&& make \
 	&& make install \
-	&& rm -r /tmp/*
+#subimage should	&& rm -r /tmp/*
 
 RUN find /usr/local -depth \
 		\( \
