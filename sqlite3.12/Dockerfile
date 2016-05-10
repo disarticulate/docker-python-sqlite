@@ -61,7 +61,7 @@ RUN cd /tmp/sqlite-autoconf-3120200 \
 	&& ./configure --prefix=/usr --disable-static \
          	CFLAGS="-g" \
 	&& make \
-	&& make install \
+	&& make install 
 #subimage should	&& rm -r /tmp/*
 
 RUN find /usr/local -depth \
