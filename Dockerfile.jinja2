@@ -1,17 +1,11 @@
 
-FROM prolocutor/docker-python-sqlite:sqlite3.12
+FROM prolocutor/docker-python-sqlite:3.12
 
 RUN cd /tmp/sqlite-autoconf-3120200 \                                                                    
         && ./configure --prefix=/usr --disable-static \                                                  
-                CFLAGS="-g {{ for flag in flags }} {{ flag }} {{ endfor }}" \                                                                            
-        && make \                                                                                        
+                CFLAGS="-g {{ flag -}}"         && make \                                                                                        
         && make install \                                                                                
         && rm -r /tmp/*                                                                                  
                                                                                                          
-RUN find /usr/local -depth \                                                                             
-                \( \                                                                                     
-                    \( -type d -a -name test -o -name tests \)                     -o                     \( -type f -a -name '*.pyc' -o -name '*.pyo' \)                 \) -exec rm -rf '{}' +         && runDeps="$(                 scanelf --needed --nobanner --recursive /usr/local                         | awk '{ gsub(/,/, "
-so:", $2); print "so:" $2 }'                         | sort -u                         | xargs -r apk info --installed                         | sort -u         )"         && apk add --virtual .python-rundeps $runDeps         && apk del .build-deps         && rm -rf /usr/src/python ~/.cache
-
 CMD ["python3"]
 
