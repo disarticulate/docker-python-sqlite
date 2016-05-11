@@ -1,1 +1,0 @@
-/debug/rtree/column-metadata
