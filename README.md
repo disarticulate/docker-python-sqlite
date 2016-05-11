@@ -8,8 +8,8 @@ Here you go:
 ```
 docker run -it prolocutor/docker-python-sqlite:3.12
 ```
-or if you want to, the following flag builds are available:
-[https://www.sqlite.org/compile.html](https://www.sqlite.org/compile.html)
+or if you want to, the following flag builds ([https://www.sqlite.org/compile.html](https://www.sqlite.org/compile.html)) are available:
+
 
 roots 3.12:
 
