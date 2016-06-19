@@ -37,7 +37,8 @@ RUN set -ex \
 		pax-utils \
 		readline-dev \
 		xz-dev \
-		zlib-dev 
+		zlib-dev \
+		sqlite-dev 
 
 RUN cd /usr/src/python \
 	&& ./configure --enable-shared --enable-unicode=ucs4 --enable-loadable-sqlite-extensions \
